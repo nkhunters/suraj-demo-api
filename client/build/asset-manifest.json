@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e158b725.chunk.css",
+    "main.js": "/static/js/main.e1bb56ef.chunk.js",
+    "main.js.map": "/static/js/main.e1bb56ef.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.dfefbec4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.dfefbec4.js.map",
+    "static/css/2.a79a866d.chunk.css": "/static/css/2.a79a866d.chunk.css",
+    "static/js/2.fd7ee186.chunk.js": "/static/js/2.fd7ee186.chunk.js",
+    "static/js/2.fd7ee186.chunk.js.map": "/static/js/2.fd7ee186.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.2e99d24209e1f1a669f84042476ebfe9.js": "/precache-manifest.2e99d24209e1f1a669f84042476ebfe9.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.a79a866d.chunk.css.map": "/static/css/2.a79a866d.chunk.css.map",
+    "static/css/main.e158b725.chunk.css.map": "/static/css/main.e158b725.chunk.css.map",
+    "static/media/bongkonect_circle.png": "/static/media/bongkonect_circle.361e9649.png",
+    "static/media/business_listing.jpg": "/static/media/business_listing.3d61ec0f.jpg",
+    "static/media/job_listing.png": "/static/media/job_listing.20f70997.png",
+    "static/media/login_background.jpg": "/static/media/login_background.7c8693af.jpg",
+    "static/media/login_background_mobile.jpg": "/static/media/login_background_mobile.0723995f.jpg",
+    "static/media/logo-white-bg.png": "/static/media/logo-white-bg.6e3932a0.png",
+    "static/media/logo.png": "/static/media/logo.2086b703.png",
+    "static/media/profile-background.png": "/static/media/profile-background.ec191b11.png",
+    "static/media/profile_listing.jpg": "/static/media/profile_listing.040b22ac.jpg",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+    "static/media/testimonial_video.mp4": "/static/media/testimonial_video.088dda91.mp4",
+    "static/media/testimonials.png": "/static/media/testimonials.1b1765e5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dfefbec4.js",
+    "static/css/2.a79a866d.chunk.css",
+    "static/js/2.fd7ee186.chunk.js",
+    "static/css/main.e158b725.chunk.css",
+    "static/js/main.e1bb56ef.chunk.js"
+  ]
+}
