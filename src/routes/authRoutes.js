@@ -17,7 +17,6 @@ const User = mongoose.model("User");
 const router = express.Router();
 
 router.post("/api/signup", async (req, res) => {
-  
   try {
     const { name, email, type, password } = req.body;
 
@@ -149,7 +148,7 @@ router.post("/api/forgotPassword", async (req, res) => {
         text:
           `You are receiving this because you have requested the reset of password for your account.\n\n` +
           `Plase click on the following link, or paste this into your browser to complete the process within one hour of receiving it:\n\n` +
-          `${process.env.CLIENT_ORIGIN}/reset/${token}\n\n` +
+          `${process.env.CLIENT_ORIGIN}/resetpassword/${token}\n\n` +
           `If you did not receive this, please ignore this email and your password remain unchanged.\n`,
       };
       sgMail
@@ -188,35 +187,21 @@ router.get("/api/reset", (req, res) => {
   });
 });
 
-router.put("/api/updatePasswordViaEmail", (req, res, next) => {
-  User.findById(req.body.userId).then((user) => {
-    if (user != null) {
-      bcrypt.genSalt(10).then((salt) => {
-        bcrypt
-          .hash(req.body.password, salt)
-          .then((hash) => {
-            User.findOneAndUpdate(
-              { _id: user._id },
-              {
-                $set: {
-                  password: hash,
-                  resetPasswordToken: null,
-                  resetPasswordExpires: null,
-                },
-              },
-              function (err, updated) {
-                console.log(err);
-              }
-            );
-          })
-          .then(() => {
-            res.status(200).send("Password updated");
-          });
-      });
-    } else {
-      res.status(404).send("User not found");
+router.put("/api/updatePasswordViaEmail", (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.body.userId },
+    {
+      $set: {
+        password: req.body.password,
+        resetPasswordToken: null,
+        resetPasswordExpires: null,
+      },
+    },
+    function (err, updated) {
+      if (err) res.status(404).send("User not found");
+      else res.status(200).send("Password updated");
     }
-  });
+  );
 });
 
 module.exports = router;
