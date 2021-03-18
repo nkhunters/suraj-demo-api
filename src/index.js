@@ -1,4 +1,5 @@
 require('./models/User');
+require('./models/CompanyDetails');
 
 const express = require("express");
 var cors = require('cors')

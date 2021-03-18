@@ -13,6 +13,7 @@ sgMail.setApiKey(
 );
 
 const User = mongoose.model("User");
+const CompanyDetail = mongoose.model("CompanyDetail");
 
 const router = express.Router();
 
@@ -202,6 +203,47 @@ router.put("/api/updatePasswordViaEmail", (req, res) => {
       else res.status(200).send("Password updated");
     }
   );
+});
+
+router.post("/api/updateCompanyDetails", async (req, res) => {
+  try {
+    const {
+      userId,
+      company,
+      sector,
+      specialization,
+      technology,
+      businessModel,
+      country,
+      state,
+      city,
+      pincode,
+      contactPerson,
+    } = req.body;
+
+    const data = {
+      company,
+      sector,
+      specialization,
+      technology,
+      businessModel,
+      country,
+      state,
+      city,
+      pincode,
+      contactPerson,
+    };
+
+    CompanyDetail.findOneAndUpdate(
+      { userId },
+      { $set: data },
+      { upsert: true, new: true }
+    )
+      .then((updated) => res.send({ companyDetails: updated }))
+      .catch((err) => console.log(err));
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;

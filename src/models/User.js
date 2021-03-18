@@ -1,41 +1,40 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
-
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        unique: true,
-        required: true
-    },
-    type: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    emailVerified: {
-        type: Boolean,
-        default: true,
-    },
-    createdOn: {
-        type: Date,
-        default: Date.now 
-    },
-    resetPasswordToken: {
-        type: String,
-        default: null
-    },
-    resetPasswordExpires: {
-        type: Date,
-        default: null
-    }
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  emailVerified: {
+    type: Boolean,
+    default: true,
+  },
+  createdOn: {
+    type: Date,
+    default: Date.now,
+  },
+  resetPasswordToken: {
+    type: String,
+    default: null,
+  },
+  resetPasswordExpires: {
+    type: Date,
+    default: null,
+  },
 });
 
 /*userSchema.pre('save', function (next) {
@@ -79,4 +78,4 @@ userSchema.methods.comparePassword = function (candidatePassword) {
     });
 } */
 
-mongoose.model('User', userSchema);
+mongoose.model("User", userSchema);
