@@ -38,7 +38,7 @@ router.post("/api/signup", async (req, res) => {
 
     const msg = {
       to: email,
-      from: "vishhow@gmail.com",
+      from: "nkhunters07@gmail.com",
       subject: "Email verification",
       text:
         `Dear Friend\n\n` +
@@ -144,7 +144,7 @@ router.post("/api/forgotPassword", async (req, res) => {
 
       const msg = {
         to: email,
-        from: "vishhow@gmail.com",
+        from: "nkhunters07@gmail.com",
         subject: "Link to reset password",
         text:
           `You are receiving this because you have requested the reset of password for your account.\n\n` +
