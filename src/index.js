@@ -26,7 +26,7 @@ app.use(authRoutes);
 app.use(express.static(path.join(__dirname, '../client/build')))
 
 //const mongoUri = `mongodb+srv://nkhunters:qwertyniraj2109@cluster0-6lvny.mongodb.net/test?retryWrites=true&w=majority`;
-const mongoUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.gayw6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const mongoUri = `mongodb+srv://nkhunters:qwertyniraj2109@cluster0.gayw6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
