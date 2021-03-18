@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 //SEND GRID MAIL
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(
-  "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"
+  "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"
 );
 
 const User = mongoose.model("User");
@@ -17,7 +17,7 @@ const User = mongoose.model("User");
 const router = express.Router();
 
 router.post("/api/signup", async (req, res) => {
-  console.log(process.env.SENDGRID_API_KEY);
+  
   try {
     const { name, email, type, password } = req.body;
 
