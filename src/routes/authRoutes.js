@@ -291,4 +291,14 @@ router.post("/api/updateCompanyDetails", async (req, res) => {
   }
 });
 
+router.post("/api/getCompanyDetails", async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const companyDetails = await CompanyDetail.findOne({ userId });
+    res.send({ companyDetails });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 module.exports = router;
