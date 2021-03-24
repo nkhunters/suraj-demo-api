@@ -14,13 +14,13 @@ sgMail.setApiKey(
 
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
-  host: 'mail.privateemail.com',
+  host: "mail.privateemail.com",
   port: 465,
   secure: true,
   auth: {
-      user: 'info@pilotchk.com',
-      pass: 'Suraj@12345'
-  }
+    user: "info@pilotchk.com",
+    pass: "Suraj@12345",
+  },
 });
 
 const User = mongoose.model("User");
@@ -149,7 +149,9 @@ router.get("/api/confirm", async (req, res) => {
       // The user has already confirmed this email address.
       else {
         console.log("user already verified");
-        return res.redirect(`${process.env.CLIENT_ORIGIN}/login?redirect=confirm`);
+        return res.redirect(
+          `${process.env.CLIENT_ORIGIN}/login?redirect=confirm`
+        );
       }
     })
     .catch((err) => console.log(err));
@@ -254,30 +256,43 @@ router.post("/api/updateCompanyDetails", async (req, res) => {
   try {
     const {
       userId,
-      company,
+      companyName,
+      dbaName,
+      websiteUrl,
       sector,
       specialization,
-      technology,
       businessModel,
+      revenueStream,
+      dateFounded,
+      companyRegNo,
       country,
-      state,
       city,
-      pincode,
-      contactPerson,
+      contactPersonName,
+      contactEmail,
+      companyPhone,
+      part,
     } = req.body;
 
-    const data = {
-      company,
+    let data = {
+      companyName,
+      dbaName,
+      websiteUrl,
       sector,
       specialization,
-      technology,
       businessModel,
-      country,
-      state,
-      city,
-      pincode,
-      contactPerson,
+      revenueStream,
     };
+
+    if (part === 2)
+      data = {
+        dateFounded: new Date(dateFounded),
+        companyRegNo,
+        country,
+        city,
+        contactPersonName,
+        contactEmail,
+        companyPhone,
+      };
 
     CompanyDetail.findOneAndUpdate(
       { userId },

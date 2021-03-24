@@ -7,31 +7,43 @@ const companyDetailsSchema = new mongoose.Schema({
   companyName: {
     type: String,
   },
+  dbaName: {
+    type: String,
+  },
+  websiteUrl: {
+    type: String,
+  },
   sector: {
     type: String,
   },
   specialization: {
     type: String,
   },
-  technology: {
-    type: String,
-  },
   businessModel: {
+    type: [String],
+  },
+  revenueStream: {
+    type: [String],
+  },
+  dateFounded: {
+    type: Date,
+  },
+  companyRegNo: {
     type: String,
   },
   country: {
     type: String,
   },
-  state: {
-    type: String,
-  },
   city: {
     type: String,
   },
-  pinCode: {
+  contactPersonName: {
     type: String,
   },
-  contactPerson: {
+  contactEmail: {
+    type: String,
+  },
+  companyPhone: {
     type: String,
   },
   createdOn: {
