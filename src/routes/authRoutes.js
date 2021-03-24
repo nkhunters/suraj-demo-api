@@ -149,7 +149,7 @@ router.get("/api/confirm", async (req, res) => {
       // The user has already confirmed this email address.
       else {
         console.log("user already verified");
-        return res.redirect(`${process.env.CLIENT_ORIGIN}?redirect=confirm`);
+        return res.redirect(`${process.env.CLIENT_ORIGIN}/login?redirect=confirm`);
       }
     })
     .catch((err) => console.log(err));
